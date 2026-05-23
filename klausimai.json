@@ -1019,7 +1019,9 @@
                                        "Nesvarbu, priklauso nuo situacijos",
                                        "Kad kabelis būtų vyniojamas nuo viršaus"
                                    ],
-                                   "eisingas": 3
+                                   "teisingas": [1, 3], 
+                               "tipas": "multiple",
+                               "vaizdas": ""
                                },
                                {
                                    "klausimas": "Kokiu darbo režimu gali veikti sinchroninės mašinos?",

@@ -514,7 +514,7 @@
 
         stats.forEach((stat, index) => {
             let proc = stat.score;
-            let cssClass = proc >= 80 ? 'pass' : 'fail';
+            let cssClass = proc >= 50 ? 'pass' : 'fail';
             let heightProc = proc < 15 ? 15 : proc; 
 
             chart.innerHTML += `
@@ -795,7 +795,7 @@
         circle.innerText = procentai + '%';
         
         let msg = document.getElementById('result-message');
-        if (procentai >= 80) {
+        if (procentai >= 50) {
             circle.className = "result-circle pass";
             msg.innerText = "Egzaminas IŠLAIKYTAS!";
         } else {

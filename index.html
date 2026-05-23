@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elektrikų Testas (Egzamino režimas)</title>
     <style>
+        /* Universali taisyklė, apsauganti nuo išsiliejimo į šonus */
+        * {
+            box-sizing: border-box;
+        }
+
         :root {
             /* Šviesios temos spalvos */
             --bg-color: #f5f5f7;
@@ -47,7 +52,6 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            box-sizing: border-box;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -68,6 +72,7 @@
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: all 0.3s;
+            z-index: 10;
         }
 
         .container {
@@ -77,7 +82,6 @@
             width: 100%;
             max-width: 900px;
             padding: 30px;
-            box-sizing: border-box;
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
@@ -87,12 +91,15 @@
             margin-top: 20px;
         }
 
-        @media (max-width: 768px) {
-            .layout { flex-direction: column-reverse; }
-        }
-
         .main-content { flex: 3; }
-        .sidebar { flex: 1; min-width: 200px; }
+        
+        .sidebar { 
+            flex: 1; 
+            min-width: 200px; 
+            position: sticky; 
+            top: 20px;
+            align-self: start; 
+        }
 
         h1, h2 { margin-top: 0; text-align: center; }
         .screen { display: none; }
@@ -175,11 +182,31 @@
             margin-top: 5px;
         }
 
+        /* Klausimų sąrašo tinklelis be horizontalaus scroll */
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 8px;
             margin-bottom: 20px;
+            max-height: 380px; 
+            overflow-y: auto; 
+            overflow-x: hidden; /* Užkerta kelią horizontaliai juostai */
+            padding-right: 5px;
+        }
+
+        /* Modernus slinkties juostos dizainas */
+        .nav-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        .nav-grid::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .nav-grid::-webkit-scrollbar-thumb {
+            background-color: var(--border);
+            border-radius: 10px;
+        }
+        .nav-grid::-webkit-scrollbar-thumb:hover {
+            background-color: var(--text-muted);
         }
 
         .nav-item {
@@ -253,7 +280,7 @@
         
         .option-btn input {
             transform: scale(1.3);
-            pointer-events: none; /* Leidžia paspausti visą mygtuką */
+            pointer-events: none; 
             margin: 0;
             accent-color: var(--primary);
         }
@@ -262,7 +289,7 @@
         .option-btn.selected { background-color: var(--selected); border-color: var(--primary); font-weight: 500; }
         .option-btn.correct { background-color: var(--success); color: white; border-color: var(--success); }
         .option-btn.wrong { background-color: var(--danger); color: white; border-color: var(--danger); }
-        .option-btn.correct input, .option-btn.wrong input { display: none; } /* Paslepiam input kai atsakymas nusidažo peržiūroje */
+        .option-btn.correct input, .option-btn.wrong input { display: none; }
         
         .multi-hint {
             font-size: 13px;
@@ -299,6 +326,13 @@
         .result-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; font-weight: bold; margin: 20px auto; color: white; }
         .pass { background-color: var(--success); }
         .fail { background-color: var(--danger); }
+
+        /* Mobilieji įrenginiai */
+        @media (max-width: 768px) {
+            .layout { flex-direction: column-reverse; }
+            .nav-grid { max-height: 250px; }
+            .sidebar { position: static; }
+        }
     </style>
 </head>
 <body>
@@ -337,9 +371,7 @@
 
         <div class="stats-panel" id="stats-panel" style="display: none;">
             <div class="stats-title">Paskutinių 5 bandymų progresas</div>
-            <div class="chart" id="stats-chart">
-                <!-- Stulpeliai generuojami JS -->
-            </div>
+            <div class="chart" id="stats-chart"></div>
         </div>
     </div>
 
@@ -392,7 +424,7 @@
     let visiKlausimai = [];
     let testKlausimai = [];
     let pasirinktiAtsakymai = [];
-    let pazymetiKlausimai = []; // Vėliavėlėms (flagged)
+    let pazymetiKlausimai = []; 
     
     let dabartinisIndeksas = 0;
     let laikoLimitSec = 1800;
@@ -401,7 +433,6 @@
     let isBaigta = false;
     let ramusRezimas = false;
 
-    // Aplikacijos užkrovimas ir temos nustatymas
     document.addEventListener("DOMContentLoaded", () => {
         initTheme();
         renderStats();
@@ -422,7 +453,7 @@
                 console.error(error);
                 let startBtn = document.getElementById('start-btn');
                 startBtn.innerText = "Klaida užkraunant duomenis!";
-                document.getElementById('db-status').innerHTML = `<span style="color:var(--danger);">Klaida: ${error.message}. Patikrinkite klausimai.json failą.</span>`;
+                document.getElementById('db-status').innerHTML = `<span style="color:var(--danger);">Klaida: ${error.message}. Patikrinkite, ar failas egzistuoja ir jo formatas teisingas.</span>`;
             });
     });
 
@@ -461,8 +492,6 @@
         stats.forEach((stat, index) => {
             let proc = stat.score;
             let cssClass = proc >= 80 ? 'pass' : 'fail';
-            
-            // Stulpelio minimalus aukštis kad matytųsi
             let heightProc = proc < 15 ? 15 : proc; 
 
             chart.innerHTML += `
@@ -480,15 +509,13 @@
         stats.push({ date: dateStr, score: score });
         
         if (stats.length > 5) {
-            stats.shift(); // Paliekam tik paskutinius 5
+            stats.shift(); 
         }
         localStorage.setItem('elektrikStats', JSON.stringify(stats));
     }
 
-
     /* ---------- TESTO LOGIKA ---------- */
     function startTest() {
-        // Nuskaitom nustatymus
         let qCountSetting = document.getElementById('setting-q-count').value;
         let limitas = qCountSetting === 'all' ? visiKlausimai.length : parseInt(qCountSetting);
         
@@ -503,30 +530,38 @@
             document.getElementById('timer').style.display = 'inline';
         }
 
-        // Išmaišome ir atrenkame
         let sumaisytiKlausimai = [...visiKlausimai].sort(() => 0.5 - Math.random());
         let atrinkti = sumaisytiKlausimai.slice(0, Math.min(limitas, visiKlausimai.length));
         
         testKlausimai = [];
-        atrinkti.forEach(q => {
-            let variantai = q.atsakymai.map((ats, idx) => ({
-                tekstas: ats,
-                arTeisingas: q.teisingas.includes(idx)
-            }));
-            
-            variantai.sort(() => 0.5 - Math.random());
-            let naujiTeisingi = variantai.map((v, i) => v.arTeisingas ? i : -1).filter(i => i !== -1);
-            
-            testKlausimai.push({
-                klausimas: q.klausimas,
-                atsakymai: variantai.map(v => v.tekstas),
-                teisingas: naujiTeisingi,
-                vaizdas: q.vaizdas || "",
-                tipas: q.tipas || "single"
-            });
+        
+        atrinkti.forEach((q, index) => {
+            try {
+                let originalusTeisingi = Array.isArray(q.teisingas) ? q.teisingas : 
+                                        (q.teisingas !== undefined ? [q.teisingas] : []);
+                
+                let originalusAtsakymai = q.atsakymai || [];
+
+                let variantai = originalusAtsakymai.map((ats, idx) => ({
+                    tekstas: ats,
+                    arTeisingas: originalusTeisingi.includes(idx)
+                }));
+                
+                variantai.sort(() => 0.5 - Math.random());
+                let naujiTeisingi = variantai.map((v, i) => v.arTeisingas ? i : -1).filter(i => i !== -1);
+                
+                testKlausimai.push({
+                    klausimas: q.klausimas || "Klaida: Nėra klausimo teksto",
+                    atsakymai: variantai.map(v => v.tekstas),
+                    teisingas: naujiTeisingi,
+                    vaizdas: q.vaizdas || "",
+                    tipas: q.tipas || "single"
+                });
+            } catch (error) {
+                console.error(`Klaida apdorojant klausimą:`, q);
+            }
         });
         
-        // Atstatinėjami kintamieji
         pasirinktiAtsakymai = Array.from({ length: testKlausimai.length }, () => []);
         pazymetiKlausimai = Array.from({ length: testKlausimai.length }, () => false);
         dabartinisIndeksas = 0;
@@ -548,7 +583,6 @@
         let q = testKlausimai[dabartinisIndeksas];
         document.getElementById('question-text').innerText = `${dabartinisIndeksas + 1}. ${q.klausimas}`;
         
-        // Paveikslėlis
         let img = document.getElementById('question-image');
         if (q.vaizdas && q.vaizdas.trim() !== "") {
             img.src = q.vaizdas;
@@ -557,11 +591,9 @@
             img.style.display = 'none';
         }
 
-        // Multi hint
         let hint = document.getElementById('multi-hint');
         hint.style.display = (q.tipas === 'multiple') ? 'block' : 'none';
 
-        // Vėliavėlės mygtuko būsena
         let flagBtn = document.getElementById('flag-btn');
         if (pazymetiKlausimai[dabartinisIndeksas]) {
             flagBtn.classList.add('active');
@@ -571,7 +603,6 @@
             flagBtn.innerText = "🚩 Atsidėti";
         }
 
-        // Generuojame variantus
         let container = document.getElementById('options-container');
         container.innerHTML = '';
         let dabartiniaiPasirinkimai = pasirinktiAtsakymai[dabartinisIndeksas];
@@ -583,7 +614,6 @@
             let isChecked = dabartiniaiPasirinkimai.includes(idx);
             let inputType = q.tipas === 'multiple' ? 'checkbox' : 'radio';
             
-            // Sugeneruojame HTML viduje (input + tekstas)
             btn.innerHTML = `<input type="${inputType}" ${isChecked ? 'checked' : ''}> <span>${ats}</span>`;
 
             if (isBaigta) {
@@ -626,7 +656,7 @@
     function toggleFlag() {
         if(isBaigta) return;
         pazymetiKlausimai[dabartinisIndeksas] = !pazymetiKlausimai[dabartinisIndeksas];
-        rodytiKlausima(); // Atnaujins mygtuko spalvą ir iškvies atnaujintiMeniu()
+        rodytiKlausima();
     }
 
     function nextQuestion() {
@@ -643,6 +673,7 @@
         }
     }
 
+    // Pagalbinė funkcija masyvų palyginimui
     function masyvaiVienodi(arr1, arr2) {
         if (arr1.length !== arr2.length) return false;
         let sorted1 = [...arr1].sort();
@@ -669,8 +700,6 @@
                     item.classList.add('wrong');
                 }
             } else {
-                // Jei klausimas atidėtas (vėliavėlė), uždedam spalvą, 
-                // nebent jis jau atsakytas, tada vėliavėlė vis tiek turi matytis (gal vartotojas abejoja)
                 if (pazymetiKlausimai[idx]) {
                     item.classList.add('flagged');
                 } else if (pasirinktiAtsakymai[idx].length > 0) {
@@ -754,9 +783,7 @@
 
         document.getElementById('result-details').innerText = `Teisingai atsakėte į ${teisingi} iš ${testKlausimai.length} klausimų.`;
         
-        // Išsaugom statistiką
         saveStat(procentai);
-
         rodytiEkrana('result-screen');
     }
 
@@ -768,7 +795,7 @@
         submitBtn.style.backgroundColor = "var(--primary)";
         
         document.getElementById('timer').style.display = 'none';
-        document.getElementById('flag-btn').style.display = 'none'; // Išjungiame atsidėjimo mygtuką peržiūroje
+        document.getElementById('flag-btn').style.display = 'none'; 
         
         dabartinisIndeksas = 0;
         rodytiEkrana('test-screen');
@@ -776,7 +803,7 @@
     }
 
     function resetTest() {
-        renderStats(); // Atnaujinam grafiką pradžios ekrane prieš jį parodant
+        renderStats(); 
         rodytiEkrana('start-screen');
     }
 

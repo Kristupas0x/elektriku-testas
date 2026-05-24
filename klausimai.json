@@ -2752,14 +2752,14 @@
                                    "vaizdas": "media/image69.jpg"
                                },
                                {
-                                   "klausimas": "Kas yra žymima vienlinijinėse schemose pateiktais laidininkų linijų ženklinimais?",
+                                   "klausimas": "Kas yra žymima pateiktame paveikslėlyje nurodytais ženklinimais?",
                                    "atsakymai": [
                                        "Įžeminimo laidininkas, jo skerspjūvis ir skaičiuojamoji srovė",
                                        "Vienfazis laidininkas, jo skerspjūvis ir skaičiuojamoji srovė",
                                        "Trifazis laidininkas ir jo specifinė varža",
                                        "Trifazis laidininkas, jo skerspjūvis ir skaičiuojamoji srovė"
                                    ],
-                                   "teisingas": [2], 
+                                   "teisingas": [3], 
                                "tipas": "single",
                                    "vaizdas": "media/image70.jpeg"
                                },

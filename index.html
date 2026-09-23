@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elektrikų Testas (Egzamino režimas)</title>
+    <title>Elektrikų egzaminas – profesinė mokykla</title>
     <style>
         /* Universali taisyklė, apsauganti nuo išsiliejimo į šonus */
         * {
@@ -136,6 +136,91 @@
         .stats-panel {
             margin: 30px auto;
             max-width: 500px;
+        }
+
+        .topic-panel {
+            background: var(--nav-bg);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 650px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .topic-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin: 14px 0 8px;
+        }
+
+        .topic-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .topic-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: var(--container-bg);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .topic-checkbox:hover {
+            border-color: var(--primary);
+        }
+
+        .topic-checkbox input {
+            transform: scale(1.2);
+            accent-color: var(--primary);
+            margin: 0;
+        }
+
+        .topic-checkbox.disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .topic-count {
+            margin-left: auto;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .selection-summary {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .selection-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .mini-btn {
+            background: var(--container-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+
+        .mini-btn:hover:not(:disabled) {
+            background: var(--selected);
         }
         .stats-title {
             font-size: 14px;
@@ -358,6 +443,13 @@
                 top: 15px;
                 right: 15px;
             }
+            .selection-actions {
+                flex-direction: column;
+            }
+
+            .topic-checkbox {
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -372,6 +464,29 @@
             Kraunami klausimai...
         </p>
         
+        <div class="topic-panel">
+            <div class="topic-title">Pasirinkite, iš kurių klausimų norite sudaryti testą</div>
+
+            <div class="topic-section-title">Elektrikų egzaminas – profesinė mokykla</div>
+            <div class="topic-list">
+                <label class="topic-checkbox" id="mano-label">
+                    <input type="checkbox" id="source-mano" checked>
+                    <span>Elektrikų egzaminas – profesinė mokykla</span>
+                    <span class="topic-count" id="mano-count">0 klaus.</span>
+                </label>
+            </div>
+
+            <div class="topic-section-title">Elektros energijos gamybos technologijos – paskaitų temos</div>
+            <div class="topic-list" id="lecture-topic-list"></div>
+
+            <div class="selection-actions">
+                <button type="button" class="mini-btn" onclick="selectAllLectureTopics(true)">Pažymėti visas paskaitų temas</button>
+                <button type="button" class="mini-btn" onclick="selectAllSources(false)">Išvalyti pasirinkimą</button>
+            </div>
+
+            <div class="selection-summary" id="selection-summary">Pasirinkite bent vieną šaltinį.</div>
+        </div>
+
         <div class="settings-panel">
             <label>Klausimų kiekis:
                 <select id="setting-q-count">
@@ -444,7 +559,11 @@
 </div>
 
 <script>
-    let visiKlausimai = [];
+    // Klausimai laikomi atskirais šaltiniais, kad profesinės mokyklos egzamininiai
+    // klausimai nesusimaišytų su paskaitų temomis.
+    let manoKlausimai = [];
+    let paskaituKlausimai = [];
+    let paskaituTemos = [];
     let testKlausimai = [];
     let pasirinktiAtsakymai = [];
     let pazymetiKlausimai = []; 
@@ -456,29 +575,168 @@
     let isBaigta = false;
     let ramusRezimas = false;
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
         initTheme();
         renderStats();
-
-        fetch('klausimai.json')
-            .then(response => {
-                if (!response.ok) throw new Error("Nepavyko užkrauti klausimų failo");
-                return response.json();
-            })
-            .then(data => {
-                visiKlausimai = data;
-                let startBtn = document.getElementById('start-btn');
-                startBtn.disabled = false;
-                startBtn.innerText = "Pradėti testą";
-                document.getElementById('db-status').innerText = `Duomenų bazėje rasta klausimų: ${visiKlausimai.length}`;
-            })
-            .catch(error => {
-                console.error(error);
-                let startBtn = document.getElementById('start-btn');
-                startBtn.innerText = "Klaida užkraunant duomenis!";
-                document.getElementById('db-status').innerHTML = `<span style="color:var(--danger);">Klaida: ${error.message}. Patikrinkite, ar failas egzistuoja ir jo formatas teisingas.</span>`;
-            });
+        bindSourceSelectionEvents();
+        await loadQuestionSources();
     });
+
+    async function loadJsonFirstAvailable(paths) {
+        for (const path of paths) {
+            try {
+                const response = await fetch(path);
+                if (!response.ok) continue;
+                const data = await response.json();
+                if (Array.isArray(data)) {
+                    return { data, path };
+                }
+            } catch (error) {
+                console.warn(`Nepavyko užkrauti ${path}:`, error);
+            }
+        }
+        return null;
+    }
+
+    async function loadQuestionSources() {
+        const status = document.getElementById('db-status');
+        const startBtn = document.getElementById('start-btn');
+
+        const [manoRez, paskaituRez] = await Promise.all([
+            // Naujas aiškus vardas, bet suderinamumas su tavo senu klausimai.json
+            // išlieka.
+            loadJsonFirstAvailable(['mano_klausimai.json', 'klausimai.json']),
+            loadJsonFirstAvailable(['elektros_energetika.json'])
+        ]);
+
+        manoKlausimai = manoRez ? manoRez.data : [];
+        paskaituKlausimai = paskaituRez ? paskaituRez.data : [];
+
+        const numatytaTvarka = [
+            'Šiluminės elektrinės',
+            'Vandens elektrinės',
+            'Atominės elektrinės',
+            'Elektrinių savosios reikmės'
+        ];
+
+        const rastosTemos = [...new Set(paskaituKlausimai.map(q => q.tema).filter(Boolean))];
+        paskaituTemos = [
+            ...numatytaTvarka.filter(t => rastosTemos.includes(t)),
+            ...rastosTemos.filter(t => !numatytaTvarka.includes(t))
+        ];
+
+        document.getElementById('mano-count').innerText = `${manoKlausimai.length} klaus.`;
+        document.getElementById('mano-label').classList.toggle('disabled', manoKlausimai.length === 0);
+        document.getElementById('source-mano').disabled = manoKlausimai.length === 0;
+
+        const topicList = document.getElementById('lecture-topic-list');
+        topicList.innerHTML = '';
+
+        paskaituTemos.forEach((tema, index) => {
+            const count = paskaituKlausimai.filter(q => q.tema === tema).length;
+            const id = `topic-${index}`;
+            const label = document.createElement('label');
+            label.className = 'topic-checkbox' + (count === 0 ? ' disabled' : '');
+            label.innerHTML = `
+                <input type="checkbox" id="${id}" class="lecture-topic" value="${escapeHtmlAttribute(tema)}" ${count === 0 ? 'disabled' : ''}>
+                <span>${escapeHtml(tema)}</span>
+                <span class="topic-count">${count} klaus.</span>
+            `;
+            topicList.appendChild(label);
+        });
+
+        updateSelectionSummary();
+
+        const available = getSelectedQuestionPool().length;
+        if (available > 0) {
+            startBtn.disabled = false;
+            startBtn.innerText = 'Pradėti testą';
+            status.innerText = `Paruošta: ${manoKlausimai.length} profesinės mokyklos egzamino klausimų + ${paskaituKlausimai.length} elektros energijos gamybos technologijų paskaitų klausimų.`;
+        } else {
+            startBtn.disabled = true;
+            startBtn.innerText = 'Pasirinkite klausimų šaltinį';
+            status.innerHTML = `<span style="color:var(--danger);">Nepavyko užkrauti nė vieno klausimų šaltinio.</span>`;
+        }
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function escapeHtmlAttribute(value) {
+        return escapeHtml(value);
+    }
+
+    function bindSourceSelectionEvents() {
+        document.getElementById('source-mano').addEventListener('change', updateSelectionSummary);
+        document.getElementById('lecture-topic-list').addEventListener('change', updateSelectionSummary);
+    }
+
+    function selectAllLectureTopics(checked) {
+        document.querySelectorAll('.lecture-topic:not(:disabled)').forEach(input => {
+            input.checked = checked;
+        });
+        updateSelectionSummary();
+    }
+
+    function selectAllSources(checked) {
+        const mano = document.getElementById('source-mano');
+        if (!mano.disabled) mano.checked = checked;
+        selectAllLectureTopics(checked);
+        updateSelectionSummary();
+    }
+
+    function getSelectedLectureTopics() {
+        return [...document.querySelectorAll('.lecture-topic:checked')].map(input => input.value);
+    }
+
+    function getSelectedQuestionPool() {
+        const pool = [];
+        const useMano = document.getElementById('source-mano')?.checked;
+        const selectedTopics = getSelectedLectureTopics();
+
+        if (useMano) pool.push(...manoKlausimai.map(q => ({ ...q, saltinis: 'Elektrikų egzaminas – profesinė mokykla', pasirinkimoTema: 'Elektrikų egzaminas – profesinė mokykla' })));
+
+        selectedTopics.forEach(tema => {
+            paskaituKlausimai
+                .filter(q => q.tema === tema)
+                .forEach(q => pool.push({ ...q, saltinis: 'Elektros energijos gamybos technologijos – paskaitų temos', pasirinkimoTema: tema }));
+        });
+
+        return pool;
+    }
+
+    function updateSelectionSummary() {
+        const parts = [];
+        if (document.getElementById('source-mano')?.checked && manoKlausimai.length) {
+            parts.push(`Elektrikų egzaminas – profesinė mokykla (${manoKlausimai.length})`);
+        }
+
+        getSelectedLectureTopics().forEach(tema => {
+            const count = paskaituKlausimai.filter(q => q.tema === tema).length;
+            parts.push(`${tema} (${count})`);
+        });
+
+        const total = getSelectedQuestionPool().length;
+        const summary = document.getElementById('selection-summary');
+        const startBtn = document.getElementById('start-btn');
+
+        if (parts.length === 0) {
+            summary.innerText = 'Pasirinkite bent vieną klausimų šaltinį.';
+            startBtn.disabled = true;
+            startBtn.innerText = 'Pasirinkite klausimų šaltinį';
+            return;
+        }
+
+        summary.innerText = `Pasirinkta: ${parts.join(' + ')}. Iš viso galima rinktis iš ${total} klausimų.`;
+        startBtn.disabled = total === 0;
+        startBtn.innerText = total > 0 ? 'Pradėti testą' : 'Nėra klausimų';
+    }
 
     /* ---------- DARK MODE VALDYMAS ---------- */
     function initTheme() {
@@ -539,8 +797,14 @@
 
     /* ---------- TESTO LOGIKA ---------- */
     function startTest() {
+        const pasirinktasBase = getSelectedQuestionPool();
+        if (pasirinktasBase.length === 0) {
+            alert('Pasirinkite bent vieną klausimų šaltinį.');
+            return;
+        }
+
         let qCountSetting = document.getElementById('setting-q-count').value;
-        let limitas = qCountSetting === 'all' ? visiKlausimai.length : parseInt(qCountSetting);
+        let limitas = qCountSetting === 'all' ? pasirinktasBase.length : parseInt(qCountSetting);
         
         let timeSetting = parseInt(document.getElementById('setting-time').value);
         if (timeSetting === 0) {
@@ -553,8 +817,8 @@
             document.getElementById('timer').style.display = 'inline';
         }
 
-        let sumaisytiKlausimai = [...visiKlausimai].sort(() => 0.5 - Math.random());
-        let atrinkti = sumaisytiKlausimai.slice(0, Math.min(limitas, visiKlausimai.length));
+        let sumaisytiKlausimai = [...pasirinktasBase].sort(() => 0.5 - Math.random());
+        let atrinkti = sumaisytiKlausimai.slice(0, Math.min(limitas, sumaisytiKlausimai.length));
         
         testKlausimai = [];
         
@@ -578,7 +842,9 @@
                     atsakymai: variantai.map(v => v.tekstas),
                     teisingas: naujiTeisingi,
                     vaizdas: q.vaizdas || "",
-                    tipas: q.tipas || "single"
+                    tipas: q.tipas || "single",
+                    saltinis: q.saltinis || 'Nežinomas',
+                    pasirinkimoTema: q.pasirinkimoTema || q.tema || 'Nepriskirta'
                 });
             } catch (error) {
                 console.error(`Klaida apdorojant klausimą:`, q);
@@ -605,6 +871,7 @@
     function rodytiKlausima() {
         let q = testKlausimai[dabartinisIndeksas];
         document.getElementById('question-text').innerText = `${dabartinisIndeksas + 1}. ${q.klausimas}`;
+        document.getElementById('test-mode-title').innerText = `${q.pasirinkimoTema}`;
         
         let img = document.getElementById('question-image');
         if (q.vaizdas && q.vaizdas.trim() !== "") {

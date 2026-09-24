@@ -605,7 +605,7 @@
         const [manoRez, paskaituRez] = await Promise.all([
             // Naujas aiškus vardas, bet suderinamumas su tavo senu klausimai.json
             // išlieka.
-            loadJsonFirstAvailable(['mano_klausimai.json', 'klausimai.json']),
+            loadJsonFirstAvailable(['prof_egzaminas.json']),
             loadJsonFirstAvailable(['elektros_energetika.json'])
         ]);
 

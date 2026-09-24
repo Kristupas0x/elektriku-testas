@@ -1,23 +1,23 @@
 [
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kokia yra pagrindinė energijos virsmo seka šiluminėje elektrinėje?",
+    "klausimas": "Kokia energijos virsmų seka būdinga šiluminei elektrinei pagal Rankine ciklą?",
     "atsakymai": [
-      "Kuras → šiluma → garas → mechaninė energija → elektra",
-      "Kuras → elektra → garas → mechaninė energija",
-      "Kuras → mechaninė energija → šiluma → elektra"
+      "Vanduo → elektra → šiluma → garas → mechaninė energija",
+      "Kuras → elektra → garas → šiluma → mechaninė energija",
+      "Kuras → šiluma → garas → mechaninė energija → elektra"
     ],
     "teisingas": [
-      0
+      2
     ]
   },
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kokia yra pagrindinė katilo funkcija?",
+    "klausimas": "Kuo pagrindiniu požiūriu skiriasi kondensacinė elektrinė (KE) nuo termofikacinės elektrinės (TE)?",
     "atsakymai": [
-      "Pakeliant generatoriaus įtampą",
-      "Sudeginti kurą ir paversti vandenį aukšto slėgio garu",
-      "Atvėsinti garą po turbinos"
+      "KE naudoja tik dujas, o TE tik anglį",
+      "KE visa garo energija skiria elektrai, o TE dalį garo energijos tiekia šilumos vartotojams",
+      "KE gamina tik šilumą, o TE tik elektrą"
     ],
     "teisingas": [
       1
@@ -25,23 +25,47 @@
   },
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kokia yra turbinos paskirtis?",
+    "klausimas": "Koks garo slėgis katile nurodytas paskaitos medžiagoje?",
+    "atsakymai": [
+      "3–30 MPa",
+      "0,03–0,3 MPa",
+      "30–60 MPa"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia garo temperatūra katile nurodyta paskaitoje?",
+    "atsakymai": [
+      "100–200 °C",
+      "800–1000 °C",
+      "400–600 °C"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia yra pagrindinė turbinos funkcija šiluminėje elektrinėje?",
+    "atsakymai": [
+      "Elektros energiją paversti garo energija",
+      "Garo šiluminę energiją paversti mechanine energija",
+      "Mechaninę energiją paversti elektros energija"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia yra generatoriaus pagrindinė funkcija?",
     "atsakymai": [
       "Mechaninę energiją paversti elektros energija",
-      "Garo energiją paversti mechaniniu sukimu",
-      "Pakeliant elektros įtampą"
-    ],
-    "teisingas": [
-      1
-    ]
-  },
-  {
-    "tema": "Šiluminės elektrinės",
-    "klausimas": "Ką atlieka transformatorius šiluminėje elektrinėje?",
-    "atsakymai": [
-      "Pakelia generatoriaus įtampą perdavimui elektros tinklu",
-      "Atvėsina turbiną",
-      "Paverčia garą vandeniu"
+      "Garą paversti vandeniu",
+      "Elektros energiją paversti mechanine energija"
     ],
     "teisingas": [
       0
@@ -49,11 +73,23 @@
   },
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kuo pagrindinė kondensacinės elektrinės funkcija skiriasi nuo termofikacinės?",
+    "klausimas": "Kam naudojamas transformatorius šiluminėje elektrinėje?",
     "atsakymai": [
-      "KE gamina tik šilumą, o TE – tik elektrą",
-      "KE gamina tik elektrą, o TE gamina elektrą ir tiekia šilumą",
-      "KE naudoja dujas, o TE gali naudoti tik anglį"
+      "Garui atvėsinti",
+      "Kuro šilumingumui padidinti",
+      "Generatoriaus įtampai padidinti perdavimui"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia yra kondensatoriaus paskirtis?",
+    "atsakymai": [
+      "Degimo orą tiekti į katilą",
+      "Likusius po turbinos garus kondensuoti į vandenį",
+      "Padidinti generatoriaus įtampą"
     ],
     "teisingas": [
       1
@@ -61,11 +97,95 @@
   },
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kuri kuro rūšis pagal pateiktą medžiagą laikoma „švariausiu“ iškastiniu kuru?",
+    "klausimas": "Kokį procesą atlieka deaeratorius ir siurbliai cikle?",
     "atsakymai": [
-      "Akmens anglis",
+      "Padeda grąžinti kondensatą ir maitinimo vandenį į ciklą",
+      "Degina kurą",
+      "Pašalina elektros įtampos svyravimus"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia apytikslė KE naudingumo koeficiento reikšmė pateikta paskaitoje?",
+    "atsakymai": [
+      "60–70 %",
+      "80–95 %",
+      "30–40 %"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia apytikslė TE naudingumo koeficiento reikšmė pateikta paskaitoje?",
+    "atsakymai": [
+      "30–40 %",
+      "60–70 %, kartais iki 90 %",
+      "20–30 %"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kiek laiko pagal paskaitą gali trukti KE arba TE paleidimas?",
+    "atsakymai": [
+      "3–10 val.",
+      "3–10 min.",
+      "30–60 val."
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kodėl TE elektros gamyba priklauso nuo šilumos poreikio?",
+    "atsakymai": [
+      "Generatorius veikia tik naktį",
+      "TE nenaudoja turbinos",
+      "Dalis garo energijos tiekiama šilumos vartotojams"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokiu atstumu nuo šilumos vartotojų pagal paskaitą paprastai įrengiama TE?",
+    "atsakymai": [
+      "Apie 300–500 km",
+      "Apie 3–5 km",
+      "Apie 30–50 km"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kuri kuro rūšis paskaitoje apibūdinama kaip naftos perdirbimo likutis?",
+    "atsakymai": [
       "Mazutas",
-      "Gamtinės dujos"
+      "Durpės",
+      "Akmens anglis"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kuris kuras paskaitoje apibūdinamas kaip turintis didelį šilumingumą, bet sukeliantis daug pelenų ir taršos?",
+    "atsakymai": [
+      "Gamtinės dujos",
+      "Biomasė",
+      "Anglis"
     ],
     "teisingas": [
       2
@@ -73,11 +193,11 @@
   },
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kokia pagrindinė SO₂ susidarymo priežastis?",
+    "klausimas": "Kuri kuro rūšis paskaitoje laikoma švariausia iš iškastinio kuro?",
     "atsakymai": [
-      "Azoto degimas aukštoje temperatūroje",
-      "Sieros turinčio kuro deginimas",
-      "Vandens garų kondensacija"
+      "Mazutas",
+      "Gamtinės dujos",
+      "Akmens anglis"
     ],
     "teisingas": [
       1
@@ -85,35 +205,95 @@
   },
   {
     "tema": "Šiluminės elektrinės",
-    "klausimas": "Kokia technologija naudojama kietosioms dalelėms ir pelenams iš dūmų sulaikyti?",
+    "klausimas": "Kuri kuro rūšis paskaitoje apibūdinama kaip vietinė, bet mažo šilumingumo?",
     "atsakymai": [
-      "Elektrostatiniai filtrai",
-      "Kondensatoriai",
-      "Transformatoriai"
+      "Durpės",
+      "Gamtinės dujos",
+      "Mazutas"
     ],
     "teisingas": [
       0
     ]
   },
   {
-    "tema": "Vandens elektrinės",
-    "klausimas": "Nuo ko pirmiausia priklauso hidroelektrinės galia pagal pateiktą formulę?",
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kurios medžiagos deginimas ypač siejamas su didele pelenų tarša pagal paskaitą?",
     "atsakymai": [
-      "Tik nuo vandens temperatūros",
-      "Nuo debito Q ir kritimo aukščio H",
-      "Tik nuo generatoriaus įtampos"
+      "Gamtinių dujų",
+      "Vandenilio",
+      "Anglies ir skalūnų"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kuris teršalas susidaro dėl sieros turinčio kuro degimo?",
+    "atsakymai": [
+      "O₂",
+      "SO₂",
+      "NO₂ tik iš azoto trąšų"
     ],
     "teisingas": [
       1
     ]
   },
   {
-    "tema": "Vandens elektrinės",
-    "klausimas": "Kuri formulė nusako hidroelektrinės galią?",
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kuriomis sąlygomis ypač susidaro NOx pagal paskaitą?",
     "atsakymai": [
-      "P = U · I",
-      "P = m · g · h",
-      "P = ρ · g · Q · H · η"
+      "Esant aukštai degimo temperatūrai",
+      "Tik kondensatoriuje",
+      "Tik transformatoriuje"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia galima SO₂ poveikio pasekmė?",
+    "atsakymai": [
+      "Generatoriaus įtampos padidėjimas",
+      "Vandens debito padidėjimas",
+      "Rūgštieji lietūs ir poveikis kvėpavimo sistemai"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Koks įrenginys naudojamas kietosioms dalelėms iš dūmų šalinti?",
+    "atsakymai": [
+      "Transformatorius",
+      "Elektrostatinis filtras",
+      "Kondensatorius"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Koks elektrostatinių filtrų efektyvumas kietųjų dalelių šalinimui nurodytas paskaitoje?",
+    "atsakymai": [
+      "Iki 99 %",
+      "Iki 20 %",
+      "Iki 50 %"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Šiluminės elektrinės",
+    "klausimas": "Kokia technologija paskaitoje minima SO₂ mažinimui?",
+    "atsakymai": [
+      "UPS",
+      "Kavitacija",
+      "Dūmų desulfurizacija, pvz., naudojant kalkakmenį"
     ],
     "teisingas": [
       2
@@ -121,11 +301,23 @@
   },
   {
     "tema": "Vandens elektrinės",
-    "klausimas": "Koks yra pagrindinis užtvankos vaidmuo hidroelektrinėje?",
+    "klausimas": "Kokia formulė pateikta hidroelektrinės galiai apskaičiuoti?",
     "atsakymai": [
-      "Sukurti vandens rezervuarą ir reikiamą kritimo aukštį",
-      "Paversti mechaninę energiją elektra",
-      "Aušinti generatorių"
+      "P = mgh/Q",
+      "P = ρgQHη",
+      "P = U/I"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Ką hidroelektrinės galios formulėje reiškia Q?",
+    "atsakymai": [
+      "Vandens debitą, m³/s",
+      "Slėgio aukštį, m",
+      "Naudingumo koeficientą"
     ],
     "teisingas": [
       0
@@ -133,19 +325,103 @@
   },
   {
     "tema": "Vandens elektrinės",
-    "klausimas": "Kuri turbina tinkamiausia dideliam kritimo aukščiui ir mažam debitui?",
+    "klausimas": "Ką formulėje P = ρgQHη reiškia H?",
     "atsakymai": [
-      "Kaplan",
+      "Vandens debitą",
+      "Vandens tankį",
+      "Slėgio aukštį tarp aukštutinio ir žemutinio bjefų"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kokia vandens tankio ρ reikšmė naudojama paskaitoje?",
+    "atsakymai": [
+      "Apie 10 kg/m³",
+      "Apie 1000 kg/m³",
+      "Apie 100 kg/m³"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kokia g reikšmė naudojama hidroelektrinės galios formulėje?",
+    "atsakymai": [
+      "9,81 m/s²",
+      "98,1 m/s²",
+      "0,981 m/s²"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Koks HE naudingumo koeficiento intervalas pateiktas paskaitoje?",
+    "atsakymai": [
+      "0,30–0,40",
+      "0,05–0,15",
+      "0,80–0,95"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kur matuojamas hidroelektrinės slėgio aukštis H?",
+    "atsakymai": [
+      "Tarp turbinos menčių",
+      "Tarp aukštutinio ir žemutinio bjefų vandens lygių",
+      "Tarp generatoriaus ir transformatoriaus"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kuri turbina pagal paskaitą skirta didesniam nei 300 m slėgio aukščiui ir mažam debitui?",
+    "atsakymai": [
       "Pelton",
+      "Kaplan",
       "Bulb"
     ],
     "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Koks pagrindinis Pelton turbinos veikimo principas?",
+    "atsakymai": [
+      "Vanduo tiesiogiai verda reaktoriuje",
+      "Garo srautas suka mentes",
+      "Vandens čiurkšlė smūgiuoja į kaušelius"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kuri turbina pagal paskaitą veikia maždaug 40–500 m slėgio aukščio diapazone?",
+    "atsakymai": [
+      "Pelton",
+      "Francis",
+      "Kaplan"
+    ],
+    "teisingas": [
       1
     ]
   },
   {
     "tema": "Vandens elektrinės",
-    "klausimas": "Kuri turbina dažniausiai naudojama esant mažam kritimo aukščiui ir dideliam debitui?",
+    "klausimas": "Kuri turbina skirta mažesniam nei 40 m slėgio aukščiui ir dideliam debitui?",
     "atsakymai": [
       "Kaplan",
       "Pelton",
@@ -157,11 +433,23 @@
   },
   {
     "tema": "Vandens elektrinės",
-    "klausimas": "Kokia yra pagrindinė siurblinės-akumuliacinės hidroelektrinės paskirtis?",
+    "klausimas": "Kuo pasižymi Kaplan turbinos mentės?",
     "atsakymai": [
-      "Tik gaminti elektrą naktį",
-      "Kaupti energiją ir padėti balansuoti elektros sistemą",
-      "Sumažinti upės vandens temperatūrą"
+      "Jos visada nejudamos",
+      "Jos skirtos tik garui",
+      "Jų kampas gali būti reguliuojamas"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Koks slėgio aukštis pagal paskaitą būdingas Bulb turbinoms?",
+    "atsakymai": [
+      "40–500 m",
+      "Mažesnis nei 15 m",
+      "Didesnis nei 300 m"
     ],
     "teisingas": [
       1
@@ -169,11 +457,35 @@
   },
   {
     "tema": "Vandens elektrinės",
-    "klausimas": "Kada SAE vanduo paprastai pumpuojamas į viršutinį rezervuarą?",
+    "klausimas": "Bulb turbina paskaitoje apibūdinama kaip kokios turbinos modifikacija?",
     "atsakymai": [
-      "Didžiausios apkrovos metu",
-      "Mažos apkrovos metu",
-      "Tik avarijos metu"
+      "Kaplan",
+      "Pelton",
+      "Garų turbinos"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kuris HE tipas naudoja užtvanką ir rezervuarą slėgio aukščiui sudaryti?",
+    "atsakymai": [
+      "Tik derivacinė HE",
+      "Tik mažoji HE",
+      "Užtvankinė HE"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kas būdinga derivacinei hidroelektrinei?",
+    "atsakymai": [
+      "Ji neturi turbinos",
+      "Vanduo nukreipiamas kanalu arba vamzdynu",
+      "Visa elektrinė privalo būti branduoliniame reaktoriuje"
     ],
     "teisingas": [
       1
@@ -181,23 +493,107 @@
   },
   {
     "tema": "Vandens elektrinės",
-    "klausimas": "Kokia yra pagrindinė hidroelektrinių aplinkosauginė problema, susijusi su užtvankomis?",
+    "klausimas": "Ką reiškia SAE hidroenergetikoje?",
     "atsakymai": [
-      "Žuvų migracijos trikdymas",
-      "Didelis SO₂ kiekis",
-      "Didelis radioaktyviųjų atliekų kiekis"
+      "Siurblinė akumuliacinė elektrinė",
+      "Saulės akumuliacinė elektrinė",
+      "Srautinė atominė elektrinė"
     ],
     "teisingas": [
       0
     ]
   },
   {
-    "tema": "Atominės elektrinės",
-    "klausimas": "Koks procesas šiandieninėse atominėse elektrinėse išskiria šilumą?",
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kada Kruonio HAE siurbia vandenį į aukštutinį baseiną?",
     "atsakymai": [
-      "Branduolių sintezė",
-      "Branduolių dalijimasis (fisija)",
-      "Cheminis kuro degimas"
+      "Tik esant maksimaliai apkrovai",
+      "Tik avarijos metu",
+      "Esant mažai apkrovai ir pigesnei elektrai"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kada Kruonio HAE gamina elektrą iš sukaupto vandens?",
+    "atsakymai": [
+      "Tik kai nėra vandens",
+      "Piko apkrovos metu",
+      "Tik naktį"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kokia SAE ciklo naudingumo reikšmė pateikta paskaitoje?",
+    "atsakymai": [
+      "70–80 %",
+      "30–40 %",
+      "90–99 %"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kokia Kruonio HAE galia pateikta paskaitos medžiagoje?",
+    "atsakymai": [
+      "Apie 101 MW",
+      "Apie 348 MW",
+      "Iki 900 MW"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kokia Kruonio HAE paskirtis, be elektros gamybos?",
+    "atsakymai": [
+      "Branduolinio kuro gamyba",
+      "Dažnio reguliavimas, rezervas ir atsinaujinančių šaltinių svyravimų balansavimas",
+      "Kuro deginimas"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kur ir kada pagal paskaitą pastatyta pirmoji pasaulyje hidroelektrinė?",
+    "atsakymai": [
+      "1882 m. Appleton, Viskonsine",
+      "1960 m. Kaune",
+      "1986 m. Černobylyje"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kada pradėjo veikti Kauno HE pagal paskaitą?",
+    "atsakymai": [
+      "1882 m.",
+      "2009 m.",
+      "1960 m."
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Vandens elektrinės",
+    "klausimas": "Kokia Kauno HE galia pateikta paskaitoje?",
+    "atsakymai": [
+      "Apie 455 MW",
+      "Apie 101 MW",
+      "Apie 900 MW"
     ],
     "teisingas": [
       1
@@ -205,11 +601,11 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Kurie branduoliai nurodyti kaip naudojami branduolio dalijimosi reakcijoje?",
+    "klausimas": "Koks procesas yra pagrindinis energijos šaltinis atominėje elektrinėje?",
     "atsakymai": [
-      "U-235 ir Pu-239",
-      "H-1 ir He-4",
-      "Li-6 ir C-12"
+      "Branduolių dalijimasis (skilimas)",
+      "Kuro degimas katile",
+      "Vandens garavimas be šilumos šaltinio"
     ],
     "teisingas": [
       0
@@ -217,11 +613,23 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Koks valdymo strypų vaidmuo branduoliniame reaktoriuje?",
+    "klausimas": "Kurie izotopai paskaitoje nurodyti kaip naudojami branduolio dalijimuisi?",
     "atsakymai": [
-      "Jie pagreitina neutronus",
-      "Jie sugeria dalį neutronų ir reguliuoja reakcijos intensyvumą",
-      "Jie aušina turbiną"
+      "H-1 ir O-16",
+      "C-12 ir O-2",
+      "U-235 ir Pu-239"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kas vyksta U-235 ar Pu-239 branduolį paveikus neutronu?",
+    "atsakymai": [
+      "Susidaro tik vanduo",
+      "Branduolys skyla į lengvesnius branduolius ir išsiskiria energija bei nauji neutronai",
+      "Branduolys visiškai išgaruoja be energijos"
     ],
     "teisingas": [
       1
@@ -229,11 +637,11 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Kokia yra moderatoriaus funkcija?",
+    "klausimas": "Kiek naujų neutronų, pagal paskaitą, gali susidaryti vieno skilimo metu?",
     "atsakymai": [
-      "Lėtinti neutronus ir didinti dalijimosi tikimybę",
-      "Sugerti visą šilumą iš turbinos",
-      "Pakelti elektros įtampą"
+      "2–3",
+      "10–20",
+      "0"
     ],
     "teisingas": [
       0
@@ -241,11 +649,35 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Kuo PWR skiriasi nuo BWR?",
+    "klausimas": "Kas vyksta nekontroliuojamai augant grandininei reakcijai?",
     "atsakymai": [
-      "PWR garas gaminamas garo generatoriuje antriniame kontūre, o BWR – tiesiogiai reaktoriuje",
-      "PWR naudoja tik dujas, o BWR – tik anglį",
-      "PWR neturi aušinimo kontūro"
+      "Ji visada akimirksniu sustoja",
+      "Ji tampa hidrauline reakcija",
+      "Ji gali augti eksponentiškai"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kokia valdymo strypų paskirtis branduoliniame reaktoriuje?",
+    "atsakymai": [
+      "Gaminti garą iš kuro",
+      "Sugerti neutronus ir reguliuoti grandininę reakciją",
+      "Padidinti vandens debitą"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Iš ko, pagal paskaitą, gali būti gaminami moderatoriai?",
+    "atsakymai": [
+      "Vandens arba grafito",
+      "Vario ir aliuminio",
+      "Naftos ir mazuto"
     ],
     "teisingas": [
       0
@@ -253,11 +685,23 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Kokia yra apsauginio gaubto paskirtis?",
+    "klausimas": "Kokia moderatoriaus paskirtis?",
     "atsakymai": [
-      "Padidinti generatoriaus galią",
-      "Sulaikyti radioaktyviąsias medžiagas ir būti papildomu saugos barjeru",
-      "Padidinti kuro šilumingumą"
+      "Padidinti generatoriaus įtampą",
+      "Atvėsinti transformatorių",
+      "Sulėtinti neutronus"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kas yra kritinė būsena reaktoriuje pagal paskaitos paaiškinimą?",
+    "atsakymai": [
+      "Nekontroliuojamas sprogimas",
+      "Stabili, kontroliuojama grandininė reakcija",
+      "Visiškai sustabdyta reakcija"
     ],
     "teisingas": [
       1
@@ -265,11 +709,35 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Koks pagrindinis atominės elektrinės privalumas eksploatacijos metu?",
+    "klausimas": "Iš ko sudaryti kuro elementai aktyviojoje zonoje pagal paskaitą?",
     "atsakymai": [
-      "Labai didelės CO₂ emisijos",
-      "Praktiškai neišmetamas CO₂ dėl paties elektros gamybos proceso",
-      "Ji nereikalauja jokio aušinimo"
+      "UO₂ tabletės ir cirkonio lydinio apvalkalas",
+      "Grynas grafitas ir betonas",
+      "Vanduo ir varis"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Koks aušinimo būdas aprašytas PWR reaktoriuje?",
+    "atsakymai": [
+      "Garas tiesiogiai iš reaktoriaus suka turbiną",
+      "Oras tiesiogiai teka per kurą",
+      "Suslėgtas vanduo pirminiame kontūre pašalina šilumą"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kiek kontūrų turi PWR pagal paskaitą?",
+    "atsakymai": [
+      "Trisdešimt",
+      "Du",
+      "Vieną"
     ],
     "teisingas": [
       1
@@ -277,11 +745,155 @@
   },
   {
     "tema": "Atominės elektrinės",
-    "klausimas": "Kuri problema yra susijusi su panaudotu branduoliniu kuru?",
+    "klausimas": "Kur PWR reaktoriuje susidaro garas, kuris suka turbiną?",
     "atsakymai": [
-      "Jis radioaktyvus ir turi būti saugomas labai ilgą laiką",
-      "Jis iš karto tampa visiškai nepavojingas",
-      "Jis gali būti išleidžiamas į upę"
+      "Garų generatoriuje antriniame kontūre",
+      "Tiesiogiai reaktoriaus inde",
+      "Transformatoriuje"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kuo BWR skiriasi nuo PWR pagal paskaitą?",
+    "atsakymai": [
+      "BWR visada turi tris garo kontūrus",
+      "BWR nenaudoja vandens",
+      "BWR garas tiesiogiai susidaro reaktoriaus inde ir suka turbiną"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kokia BWR pasekmė turbinai pagal paskaitą?",
+    "atsakymai": [
+      "Turbinai nereikia generatoriaus",
+      "Reikia griežtesnės turbinų radiacinės apsaugos",
+      "Turbina nenaudojama"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kuri išvardyta seka atitinka pagrindines branduolinės elektrinės saugos užtvaras?",
+    "atsakymai": [
+      "Kuro tabletė → cirkonio apvalkalas → reaktoriaus indas → apsauginis gaubtas",
+      "Transformatorius → kabelis → turbina → kondensatorius",
+      "Katilas → mazutas → siurblys → bokštas"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kas yra apsauginis gaubtas (containment)?",
+    "atsakymai": [
+      "Kuro siurblys",
+      "Turbinos mentė",
+      "Betoninė ir plieninė konstrukcija, sudaranti vieną iš saugos barjerų"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Ką reiškia matomi balti garai iš aušinimo bokšto?",
+    "atsakymai": [
+      "SO₂ dujas",
+      "Daugiausia vandens garus",
+      "Branduolinį kurą"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kokios avarijos metais įvyko Černobylio AE?",
+    "atsakymai": [
+      "1986 m.",
+      "1979 m.",
+      "2011 m."
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Koks reaktoriaus tipas buvo naudojamas Černobylio AE pagal paskaitą?",
+    "atsakymai": [
+      "PWR",
+      "BWR",
+      "RBMK"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kuri aplinkybė nurodyta kaip svarbi Černobylio avarijos priežastis?",
+    "atsakymai": [
+      "Tik cunamis",
+      "Konstrukcijos trūkumai ir operatorių klaidos bandymo metu",
+      "Tik žemės drebėjimas"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kada įvyko Fukushima Daiichi avarija?",
+    "atsakymai": [
+      "2011 m.",
+      "1986 m.",
+      "1960 m."
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kas Fukushima Daiichi avarijos metu sunaikino avarinio maitinimo dyzelinius generatorius?",
+    "atsakymai": [
+      "Sausra",
+      "Pelenų audra",
+      "Žemės drebėjimas ir cunamis"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Koks buvo vienas svarbiausių Fukushima avarijos padarinių reaktoriams?",
+    "atsakymai": [
+      "Vandens debito padidėjimas",
+      "Aušinimo praradimas ir aktyviosios zonos pažeidimas",
+      "Generatoriaus įtampos padidėjimas"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Atominės elektrinės",
+    "klausimas": "Kokia temperatūra pagal paskaitą reikalinga termobranduolinei sintezei plazmoje?",
+    "atsakymai": [
+      "Apie 100 mln. °C",
+      "Apie 1000 °C",
+      "Apie 100 °C"
     ],
     "teisingas": [
       0
@@ -289,71 +901,11 @@
   },
   {
     "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kas yra elektrinės savosios reikmės?",
+    "klausimas": "Ką reiškia elektrinės savosios reikmės?",
     "atsakymai": [
-      "Elektros energija, parduodama vartotojams",
-      "Elektros energija, kurią pati elektrinė sunaudoja savo įrenginiams",
-      "Tik generatoriaus pagaminta elektros energija"
-    ],
-    "teisingas": [
-      1
-    ]
-  },
-  {
-    "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kuri formulė teisingai apibūdina bruto ir neto galią?",
-    "atsakymai": [
-      "P neto = P bruto + P sav. reikmėms",
-      "P neto = P bruto − P sav. reikmėms",
-      "P neto = P sav. reikmėms − P bruto"
-    ],
-    "teisingas": [
-      1
-    ]
-  },
-  {
-    "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kurios elektrinės paprastai turi mažiausias savąsias reikmes?",
-    "atsakymai": [
-      "Hidroelektrinės",
-      "Anglimi kūrenamos šiluminės elektrinės",
-      "Atominės elektrinės"
-    ],
-    "teisingas": [
-      0
-    ]
-  },
-  {
-    "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kuris įrenginys pateiktas kaip vienas didžiausių savųjų reikmių vartotojų šiluminėse ir atominėse elektrinėse?",
-    "atsakymai": [
-      "Maitinimo siurbliai",
-      "Gatvių apšvietimas",
-      "Elektromobilio įkroviklis"
-    ],
-    "teisingas": [
-      0
-    ]
-  },
-  {
-    "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Koks yra UPS pagrindinis tikslas?",
-    "atsakymai": [
-      "Padidinti elektrinės generuojamą galią",
-      "Užtikrinti nenutrūkstamą elektros tiekimą kritiniams vartotojams",
-      "Pakeisti visas elektrinės turbinas"
-    ],
-    "teisingas": [
-      1
-    ]
-  },
-  {
-    "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kuris UPS tipas užtikrina 0 ms perjungimo laiką pagal pateiktą medžiagą?",
-    "atsakymai": [
-      "Rezervinis (offline)",
-      "Linijinis-interaktyvus",
-      "Nuolatinio veikimo (online)"
+      "Elektros energiją, parduodamą vartotojams",
+      "Tik transformatoriaus nuostolius",
+      "Elektrinės pačios sunaudojamą dalį pagamintos elektros energijos technologinėms ir pagalbinėms sistemoms"
     ],
     "teisingas": [
       2
@@ -361,11 +913,23 @@
   },
   {
     "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kokia yra inverterio funkcija UPS sistemoje?",
+    "klausimas": "Kokia formulė pateikta neto galiai apskaičiuoti?",
     "atsakymai": [
-      "Nuolatinę srovę paversti kintamąja srove",
-      "Kintamąją srovę paversti vandens energija",
-      "Sugerti neutronus"
+      "P neto = P savosios reikmėms − P bruto",
+      "P neto = P bruto − P savosios reikmėms",
+      "P neto = P bruto + P savosios reikmėms"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kuris vartotojas, pagal paskaitą, gali būti didžiausias savųjų reikmių elektros vartotojas?",
+    "atsakymai": [
+      "Maitinimo vandens siurbliai",
+      "Avarinis apšvietimas",
+      "Ryšio sistema"
     ],
     "teisingas": [
       0
@@ -373,14 +937,266 @@
   },
   {
     "tema": "Elektrinių savosios reikmės",
-    "klausimas": "Kam elektrinėse naudojami avariniai dyzeliniai generatoriai?",
+    "klausimas": "Kiek bendros elektrinės galios gali sunaudoti maitinimo vandens siurbliai?",
     "atsakymai": [
-      "Trumpalaikiam įtampos stabilizavimui vietoje UPS",
-      "Ilgesnės trukmės maitinimui nutrūkus pagrindiniam ir rezerviniam maitinimui",
-      "Generatoriams aušinti"
+      "Iki 30–50 %",
+      "Iki 0,01 %",
+      "Iki 3–5 %"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia yra maitinimo vandens siurblių paskirtis?",
+    "atsakymai": [
+      "Aušinti generatoriaus laidus vandeniu be slėgio",
+      "Tiekti vandenį į katilą arba garo generatorių aukštu slėgiu",
+      "Tiekti kurą į transformatorių"
     ],
     "teisingas": [
       1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kuris iš šių prietaisų priklauso technologinėms savosioms reikmėms?",
+    "atsakymai": [
+      "Kuro tiekimo įranga",
+      "Administracijos kompiuteriai",
+      "Darbuotojų virtuvė"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kuris iš šių vartotojų priklauso pagalbinėms savosioms reikmėms?",
+    "atsakymai": [
+      "Kuro malūnas",
+      "Maitinimo vandens siurblys",
+      "Apšvietimas, ventiliacija ir šildymas"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kiek savųjų reikmių gali sudaryti hidroelektrinėje pagal paskaitą?",
+    "atsakymai": [
+      "30–40 %",
+      "Mažiau nei 1 %",
+      "6–10 %"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokios sistemos yra svarbios vėjo elektrinės savosioms reikmėms?",
+    "atsakymai": [
+      "Menčių posvyrio ir gondolos pasukimo pavaros, valdymo elektronika, apsauga nuo apledėjimo",
+      "Kuro malūnai ir katilo ventiliatoriai",
+      "Branduolinio reaktoriaus valdymo strypai"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kas gali būti saulės elektrinės savųjų reikmių vartotojai?",
+    "atsakymai": [
+      "Kuro siurbliai",
+      "Garo turbinos kondensatorius",
+      "Inverterių aušinimo, valdymo ir stebėjimo sistemos"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Koks yra pagrindinis darbinio šaltinio transformatoriaus vaidmuo?",
+    "atsakymai": [
+      "Sugerti neutronus",
+      "Aprūpinti savąsias reikmes iš generatoriaus arba tinklo",
+      "Saugoti vandenį rezervuare"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kas yra rezervinis savųjų reikmių maitinimo šaltinis?",
+    "atsakymai": [
+      "Kitas transformatorius iš kito tinklo taško ar bloko",
+      "Tik saulės modulis",
+      "Tik turbinos kondensatorius"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kas automatiškai gali prijungti rezervinį maitinimo šaltinį?",
+    "atsakymai": [
+      "UPS baterija be inverterio",
+      "Kondensatorius",
+      "ARĮ"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kam naudojami avariniai dyzeliniai generatoriai?",
+    "atsakymai": [
+      "Tik vandens debitui reguliuoti",
+      "Ilgesniam savųjų reikmių maitinimui dingus pagrindiniams šaltiniams",
+      "Tik generatoriaus įtampai didinti"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia yra UPS pagrindinė paskirtis?",
+    "atsakymai": [
+      "Užtikrinti nepertraukiamą maitinimą trumpų elektros sutrikimų metu",
+      "Gaminti elektrą ilgus mėnesius",
+      "Padidinti katilo garo slėgį"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokias sistemas gali maitinti UPS elektrinėje?",
+    "atsakymai": [
+      "Tik transformatoriaus alyvos siurblį",
+      "Tik apšvietimą gyvenamuosiuose namuose",
+      "DCS/SCADA, relinę apsaugą, avarinius signalus ir ryšius"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Koks tipinis offline/standby UPS persijungimo laikas pagal paskaitą?",
+    "atsakymai": [
+      "Apie 2–10 min.",
+      "Apie 2–10 ms",
+      "Apie 2–10 s"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Koks tipinis line-interactive UPS persijungimo laikas pagal paskaitą?",
+    "atsakymai": [
+      "Apie 2–5 ms",
+      "Apie 2–5 s",
+      "Apie 20–50 s"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Koks persijungimo laikas būdingas online double-conversion UPS pagal paskaitą?",
+    "atsakymai": [
+      "2–10 s",
+      "30–60 ms",
+      "0 ms"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia energijos virsmų seka vyksta online double-conversion UPS?",
+    "atsakymai": [
+      "AC → garas → DC",
+      "AC → DC → AC",
+      "DC → AC → DC → AC tik generatoriuje"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia yra UPS lygintuvo/įkroviklio funkcija?",
+    "atsakymai": [
+      "AC paversti į DC ir įkrauti bateriją",
+      "DC paversti į AC",
+      "Padidinti vandens slėgį"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia yra UPS baterijos paskirtis?",
+    "atsakymai": [
+      "Sukurti garą",
+      "Pašalinti SO₂",
+      "Sukaupti energiją ir trumpą laiką maitinti vartotojus"
+    ],
+    "teisingas": [
+      2
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Koks autonomijos laikas baterijoms nurodytas paskaitoje?",
+    "atsakymai": [
+      "Tik kelios mikrosekundės",
+      "Nuo minučių iki dešimčių minučių",
+      "Nuo kelių dienų iki kelių metų"
+    ],
+    "teisingas": [
+      1
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia yra UPS inverterio funkcija?",
+    "atsakymai": [
+      "DC paversti į AC",
+      "AC paversti į DC",
+      "Vandenį paversti garu"
+    ],
+    "teisingas": [
+      0
+    ]
+  },
+  {
+    "tema": "Elektrinių savosios reikmės",
+    "klausimas": "Kokia yra UPS bypass grandinės paskirtis?",
+    "atsakymai": [
+      "Įkrauti branduolinį kurą",
+      "Reguliuoti hidroelektrinės vandens lygį",
+      "Tiekti maitinimą iš tinklo, kai UPS sugedęs arba atliekama jo priežiūra"
+    ],
+    "teisingas": [
+      2
     ]
   }
 ]
